@@ -41,7 +41,6 @@ def get_tracker(tracker_uuid: str, request: Request):
     if tracker is None:
         return Response(status_code=404)
 
-    print(request.url_for("track", tracker_uuid=tracker_uuid))
     return templates.TemplateResponse(
         request=request,
         name="tracker.html.j2",
