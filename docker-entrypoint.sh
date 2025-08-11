@@ -1,1 +1,3 @@
-uvicorn src.request_explorer.app:app --host 0.0.0.0 --port 8000
+#!/bin/bash
+
+uvicorn request_explorer.app:app --host 0.0.0.0 --port 8000
