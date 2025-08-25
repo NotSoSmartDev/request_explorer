@@ -8,8 +8,10 @@
     <body>
         <span>Url for tracking: {{ tracker_url }}</span>
         <br />
-        <pre>
-            {{ tracker_info }}
-        </pre>
+        {% for request in tracker_info %}
+            <button onclick="(async () => {await navigator.clipboard.writeText(JSON.stringify({{ request }}));})()">Copy body</button>
+            <br />
+            <pre>{{ request | tojson(2) }}</pre>
+        {% endfor %}
     </body>
 </html>

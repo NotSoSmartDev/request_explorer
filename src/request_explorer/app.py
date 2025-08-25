@@ -1,4 +1,3 @@
-import json
 import uuid
 from pathlib import Path
 
@@ -46,7 +45,7 @@ def get_tracker(tracker_uuid: str, request: Request):
         name="tracker.html.j2",
         context={
             "tracker_url": request.url_for("track", tracker_uuid=tracker_uuid),
-            "tracker_info": json.dumps(tracker, indent=2),
+            "tracker_info": tracker,
         },
     )
 
@@ -67,6 +66,6 @@ async def track(tracker_uuid: str, request: Request):
             "headers": [
                 [key.decode(), value.decode()] for key, value in request.headers.raw
             ],
-            "data": (await request.body()).decode(),
+            "body": (await request.body()).decode(),
         }
     )
