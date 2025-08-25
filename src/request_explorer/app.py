@@ -56,7 +56,7 @@ def get_tracker(tracker_uuid: str, request: Request):
 @app.patch("/trackers/{tracker_uuid}/track")
 @app.put("/trackers/{tracker_uuid}/track")
 @app.delete("/trackers/{tracker_uuid}/track")
-def track(tracker_uuid: str, request: Request):
+async def track(tracker_uuid: str, request: Request):
     tracker = TRACKERS.get(tracker_uuid)
     if tracker is None:
         return Response(status_code=404)
@@ -67,5 +67,6 @@ def track(tracker_uuid: str, request: Request):
             "headers": [
                 [key.decode(), value.decode()] for key, value in request.headers.raw
             ],
+            "data": (await request.body()).decode(),
         }
     )
