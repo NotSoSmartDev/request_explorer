@@ -75,7 +75,9 @@ async def track(tracker_uuid: str, request: Request):
 def get_intent():
     return Response(
         status_code=302,
-        headers={"location": "intent://re.notsosmart.dev/intent_redirect"},
+        headers={
+            "location": "intent://re.notsosmart.dev/intent_redirect#Intent;scheme=com.amazon.mobile.shopping.web;package=com.amazon.mShop.android.shopping;S.browser_fallback_url=https%3A%2F%2Fwww.amazon.com%2Fmessage-us%3Fref_%3Dfs_mbrowser_hybrid_hub_mu%26amp%26paradigm%3Dforesight%26amp%26muClientName%3Dforesight%26amp%26mu_params%3D%257B%2522hubSushiSessionId%2522%253A%2522588ea97d-13b6-465b-ad86-8c12ea3a3508%2522%252C%2522intentId%2522%253A%2522general_issue_selection%2522%252C%2522CPSDeeplinkEventId%2522%253A%2522b30ec06e-be54-42ca-a3d6-9ea632497a89%2522%257D%26sig%3Df1d23246-40e0-40d3-a3ed-024a1256097f;end"
+        },
     )
 
 
