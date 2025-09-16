@@ -69,3 +69,16 @@ async def track(tracker_uuid: str, request: Request):
             "body": (await request.body()).decode(),
         }
     )
+
+
+@app.get("/get_intent")
+def get_intent():
+    return Response(
+        status_code=302,
+        headers={"location": "intent://re.notsosmart.dev/intent_redirect"},
+    )
+
+
+@app.get("/intent_redirect")
+def intent_redirect():
+    return "Redirect wasss success"
