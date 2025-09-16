@@ -83,7 +83,7 @@ def get_intent():
 
 @app.get("/intent_redirect")
 def intent_redirect():
-    return """
+    return HTMLResponse("""
     <!doctype html>
     <html lang="en">
         <head>
@@ -95,4 +95,4 @@ def intent_redirect():
             <span>Success</span>
         </body>
     </html>
-    """
+    """)
