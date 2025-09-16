@@ -76,11 +76,23 @@ def get_intent():
     return Response(
         status_code=302,
         headers={
-            "location": "intent://re.notsosmart.dev/intent_redirect#Intent;scheme=com.amazon.mobile.shopping.web;package=com.amazon.mShop.android.shopping;S.browser_fallback_url=https%3A%2F%2Fwww.re.notsosmart.dev%2Fintent_redirect;end"
+            "location": "intent://re.notsosmart.dev/intent_redirect#Intent;scheme=com.amazon.mobile.shopping.web;package=com.amazon.mShop.android.shopping;S.browser_fallback_url=https%3A%2F%2Fre.notsosmart.dev%2Fintent_redirect;end"
         },
     )
 
 
 @app.get("/intent_redirect")
 def intent_redirect():
-    return "Redirect wasss success"
+    return """
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Document</title>
+        </head>
+        <body>
+            <span>Success</span>
+        </body>
+    </html>
+    """
